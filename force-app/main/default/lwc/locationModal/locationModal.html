@@ -1,0 +1,10 @@
+<template>
+    <lightning-modal-header label="Contact Location Based on Zip Code"></lightning-modal-header>
+    <lightning-modal-body>  
+           <lightning-map map-markers={mapMarkers} zoom-level={zoomLevel}
+           > </lightning-map>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="OK" onclick={handleOkay}></lightning-button>
+    </lightning-modal-footer>
+</template>

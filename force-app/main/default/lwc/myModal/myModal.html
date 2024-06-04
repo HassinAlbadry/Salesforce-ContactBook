@@ -1,0 +1,21 @@
+<template>
+    <lightning-modal-header label={getContentName}></lightning-modal-header>
+    <lightning-modal-body> 
+        
+         <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Title" placeholder="Field value will not change if left empty" onchange={handleTitleInput}></lightning-input>
+        </div>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="tel" label="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Field value will not change if left empty" onchange={handlePhoneInput}></lightning-input>
+        </div>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="email" label="Email" placeholder="Field value will not change if left empty"  onchange={handleEmailInput}></lightning-input>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+
+
+    <lightning-button label="Edit" onclick={handleAdd}></lightning-button>
+    </lightning-modal-footer>
+    
+</template>

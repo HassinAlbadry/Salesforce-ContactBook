@@ -1,0 +1,72 @@
+<template>
+  <div class="slds-grid slds-wrap   slds-container_medium slds-container_center" onload={handleClick}>
+      
+
+      <!-- Default/basic -->
+        <div class="slds-col slds-size_3-of-4 slds-p-horizontal_medium">
+          <lightning-input label=" Name" value={name} onchange={handleChange} placeholder="Search a contact name" onkeydown={handleEnter} data-field="name" class="myInput23"></lightning-input>
+          </div>
+          <div class="slds-col slds-size_1-of-6">
+            <div class="slds-m-top_large">
+              <lightning-button variant="brand"   label="Search Contact"   onclick={handleClick} class="slds-show_small"></lightning-button>
+              </div>
+        </div>
+            
+              
+              <template lwc:if={matchingContacts}>
+               <!-- <div class="slds-grid slds-wrap">-->
+
+                <template for:each={matchingContacts} for:item="contact">
+
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-p-horizontal_medium " key={contact.Id}>
+                      <lightning-card  variant="Narrow"  title={contact.Name} icon-name="standard:contact" class="slds-m-left_medium cardHeight">
+                        <lightning-button-icon  icon-name="utility:down"  class="slds-m-bottom_large"    variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+                        <p class="slds-p-horizontal_small">Title : {contact.Title} </p>
+                        <p class="slds-p-horizontal_small">Phone : {contact.Phone} </p>
+                        <p class="slds-p-horizontal_small">Email: {contact.Email} </p>
+                        <div class="align-buttons">
+                       <button class="slds-button slds-button_brand slds-m-top_x-large slds-align_absolute-center" onclick={handleClick1} name={contact.Name} value={contact.Id} >Edit Contact</button>
+                       <button class="slds-button slds-button_brand slds-m-top_x-large slds-align_absolute-center" onclick={handleLocation}  value={contact.Id} >See Location</button>
+                          </div>
+                    
+                       <!--<p slot="footer">Card Footer</p>-->
+                    </lightning-card>
+                      </div>
+                      
+                </template>
+           <!--</div> -->
+            </template>
+
+            <template lwc:elseif={searchSpecificName}>
+             <!-- <div class="slds-grid slds-wrap">-->
+
+              <template for:each={searchSpecificName} for:item="contact">
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-p-horizontal_medium" key={contact.Id}>
+                  <lightning-card  variant="Narrow"  title={contact.Name} icon-name="standard:contact" class="slds-m-left_medium cardHeight">
+                    <lightning-button-icon  icon-name="utility:down"  class="slds-m-bottom_large"    variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+                    <p class="slds-p-horizontal_small">Title : {contact.Title} </p>
+                    <p class="slds-p-horizontal_small">Phone : {contact.Phone} </p>
+                    <p class="slds-p-horizontal_small">Email: {contact.Email} </p>
+                    <div class="align-buttons">
+                   <button class="slds-button slds-button_brand slds-m-top_x-large slds-align_absolute-center" onclick={handleClick1} name={contact.Name} value={contact.Id} >Edit Contact</button>
+                   <button class="slds-button slds-button_brand slds-m-top_x-large slds-align_absolute-center" onclick={handleLocation}  value={contact.Id} >See Location</button>
+                      </div>
+                    
+                
+                </lightning-card>
+                  </div>
+                  
+            </template>
+
+<!--</div>-->
+            </template>
+
+            
+
+
+        
+      
+  </div>
+  
+</template>
